@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+    </ion-buttons>
+    <ion-title id="ce">Pokepedia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="ion-text-center">
+    <h1>Registro de Pokémon</h1>
+  </div>
+  <div>
+    <ion-list>
+      <ion-item>
+        <ion-input label="Nombre del Pokémon" label-placement="floating" fill="solid" placeholder="Enter text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Tipo de Pokémon" label-placement="floating" fill="solid" placeholder="Enter text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Puntos de vida" label-placement="floating" fill="solid" placeholder="Enter text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Ataque" label-placement="floating" fill="solid" placeholder="Enter text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Defensa" label-placement="floating" fill="solid" placeholder="Enter text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Número de la Pokedex" label-placement="floating" fill="solid" placeholder="Enter text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Movimientos" label-placement="floating" fill="solid" placeholder="Enter text"></ion-input>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div>
+    <ion-button id="button">Guardar registro</ion-button>
+  </div>
+</ion-content>

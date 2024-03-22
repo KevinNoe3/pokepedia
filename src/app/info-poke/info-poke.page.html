@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+    </ion-buttons>
+    <ion-title id="ce">Pokepedia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div>
+  <ion-buttons slot="end" >
+    <ion-icon name="heart-outline" id="he"></ion-icon>
+  </ion-buttons>  
+    
+  <ion-card *ngIf="pokemon">
+    <img alt="{{pokemon.name}}" [src]="pokemon.sprites.front_default" />
+    <ion-card-header>
+      <ion-card-title>{{ pokemon.name }}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <p><strong>Id</strong>{{pokemon.id}}</p>
+      <p><strong>Tipo de Pokémon:</strong></p>
+      <ul>
+        <li *ngFor="let type of pokemon.types">{{ type.type.name }}</li>
+      </ul>
+      <p><strong>Puntos de vida:</strong>{{pokemon.hp}}</p>
+      <p><strong>Altura:</strong> {{ pokemon.height }}</p>
+      <p><strong>Peso:</strong> {{ pokemon.weight }}</p>
+      <p><strong>Estadísticas:</strong></p>
+      <ul>
+        <li *ngFor="let stat of pokemon.stats">{{ traducirNombre(stat.stat.name) }}: {{ stat.base_stat }}</li>
+      </ul>
+      <p><strong>Ataque:</strong>{{pokemon.attack}}</p>
+      <p><strong>Defensa:</strong>{{pokemon.defense}}</p>
+      
+      <p><strong>Habilidades:</strong></p>
+      <ul>
+        <li *ngFor="let ability of pokemon.abilities">{{ ability.ability.name }}</li>
+      </ul>
+      <p><strong>Velocidad</strong></p>
+    </ion-card-content>
+  </ion-card>
+  </div>
+  
+</ion-content>

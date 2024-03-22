@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+    </ion-buttons>
+    <ion-title id="ce">Pokepedia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<body>
+  <ion-content [fullscreen]="true">
+    <div id="ce">
+      <h1>Catalogo de Pokémones</h1>
+      <ion-searchbar animated="true" placeholder="Buscar Pokémon"></ion-searchbar>
+      <ion-button routerLink="/registro-poke">Registrar Pokémon</ion-button>
+      <div size="3" *ngFor="let pokemon of pokemons; let i = index">
+        <ion-grid>
+          <ion-row>
+            <ion-col><ion-item button (click)="showPokemon(i + 1)">
+              <ion-avatar aria-hidden="true" slot="start">
+                <img *ngIf="pokemon.sprites" style="height: 70px;" alt="{{pokemon.name}}" [src]="pokemon.sprites.front_default" />
+              </ion-avatar>
+              <ion-label>{{pokemon.name}}</ion-label>
+              <ion-label>
+                <ul>
+                  <li *ngFor="let type of pokemon.types">{{ type.type.name }}</li>
+                </ul>
+              </ion-label>
+            </ion-item></ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+    <ion-infinite-scroll>
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-content>
+</body>
+

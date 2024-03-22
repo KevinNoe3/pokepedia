@@ -1,8 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+    </ion-buttons>
+    <ion-title id="ce">Pokepedia</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,7 +15,60 @@
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+   <h1>Bienvenido</h1>
+   <ion-item class="ion-text-center">
+    <ion-avatar aria-hidden="true" slot="start">
+      <img alt="" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+    </ion-avatar>
+    <ion-label>Entrenador {{ correoIngresado }}</ion-label>
+  </ion-item>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Estadisticas del entrenador</ion-card-title>
+      <ion-card-subtitle>Número de Pokémones encontrados:</ion-card-subtitle>
+      <ion-card-subtitle>Ultimo Pokémon encontrado:</ion-card-subtitle>
+      
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-card-subtitle>Pokémones favoritos</ion-card-subtitle>
+      <ion-content color="light">
+        <ion-list [inset]="true">
+          <ion-item>
+            <ion-label>Pikachu</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>Gardevoir</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>Vaporeon</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>Pichu</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>Eevee</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button routerLink="/catalogo">Catalogo de Pokémones</ion-button>
+
+  <ion-list *ngIf="pokemones">
+    <ion-item *ngFor="let pokemon of pokemones">
+      {{ pokemon.name }}
+    </ion-item>
+  </ion-list>
+  
+
+  <ion-infinite-scroll>
+    <ion-infinite-scroll-content
+    loadingSpinner="bubbles"
+    loadingText="Cargando más datos...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+    
   </div>
 </ion-content>

@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title id="ce">Pokepedia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="miFormulario" (ngSubmit)="submitForm()">
+  
+    <div>
+      <h1 id="ceu">Inicio de sesión</h1>
+    </div>
+    <div id="llenar">
+      <ion-text>
+        Los campos son oblicagorios
+      </ion-text>
+      <ion-list>
+        <ion-item>
+          <ion-input type="email" formControlName="email" label="Correo institucional" label-placement="floating" fill="outline" placeholder="Enter text" [(ngModel)]="correoIngresado"></ion-input>
+          
+        </ion-item>
+        <div *ngIf="miFormulario.get('email')?.invalid && (miFormulario.get('email')?.dirty || miFormulario.get('email')?.touched)">
+        </div> 
+
+        <ion-item>
+          <ion-input formControlName="password" type="password" label="Contraseña" label-placement="floating" fill="outline" placeholder="Enter text"></ion-input>
+        </ion-item>
+        <div *ngIf="miFormulario.get('password')?.invalid && (miFormulario.get('password')?.dirty || miFormulario.get('password')?.touched)"></div>
+
+      </ion-list>
+    </div>
+  
+    <div id="ce">
+      <p>Si no posees una cuenta registrate</p>
+      <ion-button fill="clear" routerLink="/registro">Registrarse</ion-button>
+      <div id="button">
+        <ion-button expand="full" type="submit" [disabled]="miFormulario.invalid" routerLink="/home">Iniciar sesión</ion-button>
+      </div>
+    
+    </div>
+  
+  </form>
+
+  
+  
+</ion-content>
+
+
